@@ -2,11 +2,11 @@ body {
     background-color: white;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-    color: #df167b;
+.navbar-light {
+    background-color: #ffcbdb;
 }
 
-.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+.navbar-dark .navbar-nav .nav-link {
     color: #df167b;
 }
 
