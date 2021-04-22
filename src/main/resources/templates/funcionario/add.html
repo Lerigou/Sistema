@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="icon" th:href=@{/img/capivara.png} type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/fontawesome-5.15.3/css/all.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <title>Adicionar Funcionários</title>
+</head>
+<body>
+
+<div class="container container-form-funcionario">
+        <h3>Adicionar Funcionário</h3>
+    <form action="@{/funcionario/save" method="post" th:object="${funcionario}">
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placehlder="Código" th:field="*{id}">
+            <label for="floatingInput">Código</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placehlder="Nome" th:field="*{nome}">
+            <label for="floatingInput">Nome</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placehlder="Email" th:field="*{email}">
+            <label for="floatingInput">Email</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="telefone" class="form-control" id="floatingInput" placehlder="Telefone" th:field="*{telefone}">
+            <label for="floatingInput">Telefone</label>
+        </div>
+
+    </form>
+</div>
+
+<!--JS-->
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/popper.min.js}" ></script>
+<script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+</body>
+</html>

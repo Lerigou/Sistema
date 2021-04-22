@@ -1,0 +1,87 @@
+body {
+    background-color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #df167b;
+}
+
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+    color: #df167b;
+}
+
+.navbar-dark .navbar-brand {
+    color: #df167b;
+}
+
+.navbar-dark .navbar-text {
+    color: #df167b;
+}
+
+.card-header {
+    padding: .5rem 1rem;
+    margin-bottom: 0;
+    background-color: #ffcbdb;
+    color: #df167b;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-color: #df167b;
+}
+
+.card {
+    border-color: #df167b;
+}
+
+.container-principal{
+    margin-top: 24px;
+}
+
+.container{
+    margin-top: 24px;
+}
+
+.btn-outline-dark {
+    color: #df167b;
+    border-color: #df167b;
+}
+
+.card {
+    margin-bottom: 16px;
+}
+
+footer {
+    color: #df167b;
+    background-color: #ffcbdb;
+    text-align: center;
+    padding: 32px;
+}
+
+li {
+    list-style-type: none;
+}
+
+h3 {
+text-align: center;
+}
+
+.container-funcionario {
+    border: 1px solid #df167b;
+    border-radius: 15px;
+    padding: 16px;
+}
+
+.td-controle {
+    width: 60px;
+}
+
+.container-btn-novo{
+    width: 100%;
+    text-align: right;
+    margin-bottom: 8px;
+}
+
+.container-form-funcionario{
+    border: 1px solid #df167b;
+    border-radius: 15px;
+    padding: 16px;
+    width: 80%;
+}

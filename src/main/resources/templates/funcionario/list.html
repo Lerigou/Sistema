@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="icon" th:href=@{/img/capivara.png} type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/fontawesome-5.15.3/css/all.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <title>Lista de Funcionários</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark --bs-pink">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Sistema Funcionário</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" th:href="@{funcionario/home}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Funcionários</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Membros</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+              É isso ae, site rosinha
+            </span>
+        </div>
+    </div>
+</nav>
+
+<div class="container container-funcionario table-responsive">
+    <div class="container container-btn-novo">
+        <h3>Funcionários</h3>
+        <a th:href="@{/funcionario/add}" class="btn btn-outline-dark"><i class="fa fa-file"></i> Novo </a>
+    </div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th colspan="3">Telefone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="funcionario : ${funcionarios}">
+            <td th:text="${funcionario.id}"></td>
+            <td th:text="${funcionario.nome}"></td>
+            <td th:text="${funcionario.email}"></td>
+            <td th:text="${funcionario.telefone}"></td>
+            <td class="td-controle">
+                <a th:href="@{/funcionario/edit}" class="btn btn-outline-dark"><i class="far fa-edit"></i></a>
+            </td>
+            <td class="td-controle">
+                <a th:href="@{/funcionario/delete}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<!--JS-->
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/popper.min.js}" ></script>
+<script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+</body>
+</html>
