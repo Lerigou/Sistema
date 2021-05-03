@@ -44,6 +44,27 @@ body {
     border-color: #df167b;
 }
 
+.btn-outline {
+    color: #df167b;
+    border-color: #df167b;
+    width: 100%;
+}
+
+.btn-outline-success {
+    width: 100%;
+}
+
+.btn-outline-dark:hover{
+    color: white;
+    border-color: #df167b;
+    background-color: #df167b;
+}
+
+.btn-outline:hover{
+    color: white;
+    background-color: #df167b;
+}
+
 .card {
     margin-bottom: 16px;
 }

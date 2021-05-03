@@ -41,30 +41,50 @@
 
 <div class="container container-form-funcionario">
         <h3>Adicionar Funcionário</h3>
-    <form action="@{/funcionario/save" method="post" th:object="${funcionario}">
+    <form th:action="@{/funcionario/save}" method="post" th:object="${funcionario}">
 
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placehlder="Código" th:field="*{id}">
-            <label for="floatingInput">Código</label>
+
+        <div th:if="${erro}" class="alert alert-danger">
+            <span th:text="${erroMsg}"></span>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingNome" placehlder="Nome" th:field="*{nome}">
-            <label for="floatingNome">Nome</label>
+            <input type="number" class="form-control" id="floatingInputId" placeholder="Código" disabled
+                   th:field="*{id}">
+            <label for="floatingInputId">Código</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingEmail" placehlder="Email" th:field="*{email}">
-            <label for="floatingEmail">Email</label>
+            <input type="text" class="form-control" id="floatingInputNome" placeholder="Nome"
+                   th:field="*{nome}">
+            <label for="floatingInputEmail">Nome</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="telefone" class="form-control" id="floatingTelefone" placehlder="Telefone" th:field="*{telefone}">
-            <label for="floatingTelefone">Telefone</label>
+            <input type="text" class="form-control" id="floatingInputTelefone" placeholder="Telefone"
+                   th:field="*{telefone}">
+            <label for="floatingInputTelefone">Telefone</label>
         </div>
+
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInputEmail" placeholder="Email"
+                   th:field="*{Email}">
+            <label for="floatingInputEmail">Email</label>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <a th:href="@{/funcionario/list}"  id="btn forms" class="btn btn-outline" type="submit">
+                    <i class="far fa-address-book"></i> Voltar </a>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-success" type="submit">
+                    <i class="far fa-save"></i> Adicionar
+                </button>
+            </div>
+        </div>
+
     </form>
-
-    <a href="#" class="btn btn-outline-dark">Go somewhere</a>
 
 </div>
 
