@@ -21,7 +21,7 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 
     @Override
     public Funcionario findById(Long id) {
-        return null;
+        return funcionarioRepository.findById(id).get();
     }
 
     @Override
@@ -39,10 +39,33 @@ public class FuncionarioServiceImpl implements FuncionarioService {
             } else {
                 return false;
             }
+        } catch (Exception e) {
+            return false;
         }
-            catch(Exception e){
-                return false;
-            }
     }
 
+    @Override
+    public String validarFuncionario(Funcionario funcionario) {
+        String error = null;
+
+        if (funcionario.getId() == null) {//novo funcionario
+            if (!funcionarioRepository.findByNome(funcionario.getNome()).equals("")) {
+                error = "Nome já cadastrado!";
+            }
+
+            if (!funcionarioRepository.findByEmail(funcionario.getEmail()).equals("")) {
+                error += "\nEmail já cadastrado!";
+            }
+
+        }else {//funcionario existente
+                if (funcionarioRepository.findByIdNotAndEmail(funcionario.getId(), funcionario.getEmail()) != null){
+                    error = "Email já cadastrado!";
+                }
+
+                if (funcionarioRepository.findByIdNotAndEmail(funcionario.getId(), funcionario.getNome()) != null){
+                    error += "\nNome já cadastrado!";
+                }
+            }
+        return error;
+    }
 }

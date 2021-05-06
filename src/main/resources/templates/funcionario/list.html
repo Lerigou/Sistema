@@ -28,9 +28,6 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/}">Funcionários</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Membros</a>
-                </li>
             </ul>
             <span class="navbar-text">
               É isso ae, site rosinha
@@ -60,7 +57,7 @@
             <td th:text="${funcionario.email}"></td>
             <td th:text="${funcionario.telefone}"></td>
             <td class="td-controle">
-                <a th:href="@{/funcionario/edit}" class="btn btn-outline-dark"><i class="far fa-edit"></i></a>
+                <a th:href="@{'/funcionario/edit/' + ${funcionario.id}}" class="btn btn-outline-dark"><i class="far fa-edit"></i></a>
             </td>
             <td class="td-controle">
                 <a th:href="@{/funcionario/delete}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>

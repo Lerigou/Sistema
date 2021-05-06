@@ -10,7 +10,7 @@
     <link rel="stylesheet" th:href="@{/fontawesome-5.15.3/css/all.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
-    <title>Adicionar Funcionários </title>
+    <title> Editar Funcionário </title>
 </head>
 <body>
 
@@ -46,26 +46,22 @@
         </div>
 
         <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="floatingInputId" placeholder="Código" disabled
-                   th:field="*{id}">
+            <input type="number" class="form-control" id="floatingInputId" placeholder="Código" readonly th:field="${funcionario.id}">
             <label for="floatingInputId">Código</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInputNome" placeholder="Nome"
-                   th:field="*{nome}">
+            <input type="text" class="form-control" id="floatingInputNome" placeholder="Nome" th:field="${funcionario.nome}">
             <label for="floatingInputEmail">Nome</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInputTelefone" placeholder="Telefone"
-                   th:field="*{telefone}">
+            <input type="text" class="form-control" id="floatingInputTelefone" placeholder="Telefone" th:field="${funcionario.telefone}">
             <label for="floatingInputTelefone">Telefone</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInputEmail" placeholder="Email"
-                   th:field="*{Email}">
+            <input type="email" class="form-control" id="floatingInputEmail" placeholder="Email" th:field="${funcionario.Email}">
             <label for="floatingInputEmail">Email</label>
         </div>
 
