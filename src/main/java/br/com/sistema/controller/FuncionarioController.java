@@ -40,7 +40,7 @@ public class FuncionarioController {
             if (funcionario.getId() == null) {
                 return "funcionario/add";
             } else {
-                return "funcionario/edit";
+                return "funcionario/edit"; //última edição
             }
         }
 
@@ -57,5 +57,15 @@ public class FuncionarioController {
         model.addAttribute("funcionario", funcionarioService.findById(id));
         return "funcionario/edit";
 
+    }
+
+    @GetMapping("/funcionario/delete/{id}")
+    public String delete(@PathVariable long id){
+
+        if(funcionarioService.deleteById(id)){
+            return "redirect:/funcionario/list";
+        } else {
+            return "redirect:/funcionario/list";
+        }
     }
 }

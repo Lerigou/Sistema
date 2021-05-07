@@ -106,3 +106,14 @@ text-align: center;
     padding: 16px;
     width: 80%;
 }
+
+.modal-header-color{
+    background-color: #ffcbdb;
+    color: #df167b;
+    font-weight: bold;
+    border-color: #df167b;
+}
+
+.modal-content {
+    border-color: #df167b;
+}

@@ -13,5 +13,6 @@ public interface FuncionarioService {
     public String validarFuncionario(Funcionario funcionario);
 
     public boolean save(Funcionario funcionario);
+    public boolean deleteById(Long id);
 }
 
