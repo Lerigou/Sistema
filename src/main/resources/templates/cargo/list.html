@@ -10,7 +10,7 @@
     <link rel="stylesheet" th:href="@{/fontawesome-5.15.3/css/all.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
-    <title>Lista de Funcionários</title>
+    <title>Lista de Cargos</title>
 </head>
 <body>
 
@@ -26,10 +26,10 @@
                     <a class="nav-link" aria-current="page" th:href="@{/}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/}">Funcionários</a>
+                    <a class="nav-link" th:href="@{/funcionario/list}">Funcionários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/cargo/list}">Cargos</a>
+                    <a class="nav-link" th:href="@{/}">Cargos</a>
                 </li>
             </ul>
             <span class="navbar-text">
@@ -41,29 +41,25 @@
 
 <div class="container container-funcionario table-responsive">
     <div class="container container-btn-novo">
-        <h3>Funcionários</h3>
-        <a th:href="@{/funcionario/add}" class="btn btn-outline-dark"><i class="fa fa-file"></i> Novo </a>
+        <h3>Cargos</h3>
+        <a th:href="@{/cargo/add}" class="btn btn-outline-dark"><i class="fa fa-file"></i> Novo </a>
     </div>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Código</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th colspan="3">Telefone</th>
+            <th colspan="3">Nome</th>
         </tr>
     </thead>
     <tbody>
-        <tr th:each="funcionario : ${funcionarios}">
-            <td th:text="${funcionario.id}"></td>
-            <td th:text="${funcionario.nome}"></td>
-            <td th:text="${funcionario.email}"></td>
-            <td th:text="${funcionario.telefone}"></td>
+        <tr th:each="cargo : ${cargos}">
+            <td th:text="${cargo.id}"></td>
+            <td th:text="${cargo.nome}"></td>
             <td class="td-controle">
-                <a th:href="@{'/funcionario/edit/' + ${funcionario.id}}" class="btn btn-outline-dark"><i class="far fa-edit"></i></a>
+                <a th:href="@{'/cargo/edit/' + ${cargo.id}}" class="btn btn-outline-dark"><i class="far fa-edit"></i></a>
             </td>
             <td class="td-controle">
-                <a th:onclick="|showModalDeletar('funcionario', ${funcionario.id})|" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+                <a th:onclick="|showModalDeletar('cargo', ${cargo.id})|" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
             </td>
         </tr>
     </tbody>
@@ -79,7 +75,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Ao clicar aqui você apagará o funcionario, está ciente e concorda?</p>
+                <p>Ao clicar aqui você apagará o cargo, está ciente e concorda?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Ops, me enganei</button>
