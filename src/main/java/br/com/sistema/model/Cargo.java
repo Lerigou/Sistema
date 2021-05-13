@@ -18,7 +18,7 @@ public class Cargo {
     @NotNull
     private String nome;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

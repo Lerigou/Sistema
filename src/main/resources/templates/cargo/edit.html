@@ -10,7 +10,7 @@
     <link rel="stylesheet" th:href="@{/fontawesome-5.15.3/css/all.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
-    <title> Editar Funcionário </title>
+    <title> Editar Cargo </title>
 </head>
 <body>
 
@@ -39,9 +39,9 @@
     </div>
 </nav>
 
-<div class="container container-form-funcionario">
-        <h3>Adicionar Funcionário</h3>
-    <form th:action="@{/funcionario/save}" method="post" th:object="${funcionario}">
+<div class="container container-form-cargo">
+        <h3>Adicionar Cargo</h3>
+    <form th:action="@{/cargo/save}" method="post" th:object="${cargo}">
 
 
         <div th:if="${erro}" class="alert alert-danger">
@@ -49,28 +49,18 @@
         </div>
 
         <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="floatingInputId" placeholder="Código" readonly th:field="${funcionario.id}">
+            <input type="number" class="form-control" id="floatingInputId" placeholder="Código" readonly th:field="${cargo.id}">
             <label for="floatingInputId">Código</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInputNome" placeholder="Nome" th:field="${funcionario.nome}">
+            <input type="text" class="form-control" id="floatingInputNome" placeholder="Nome" th:field="${cargo.nome}">
             <label for="floatingInputNome">Nome</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInputTelefone" placeholder="Telefone" th:field="${funcionario.telefone}">
-            <label for="floatingInputTelefone">Telefone</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInputEmail" placeholder="Email" th:field="${funcionario.Email}">
-            <label for="floatingInputEmail">Email</label>
         </div>
 
         <div class="row">
             <div class="col">
-                <a th:href="@{/funcionario/list}"  id="btn forms" class="btn btn-outline" type="submit">
+                <a th:href="@{/cargo/list}"  id="btn forms" class="btn btn-outline" type="submit">
                     <i class="far fa-address-book"></i> Voltar </a>
             </div>
             <div class="col">

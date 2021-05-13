@@ -4,13 +4,15 @@ import br.com.sistema.model.Cargo;
 
 import java.util.List;
 
-public interface CargoSevice {
+public interface CargoService {
 
     public Cargo findById(Long id);
     public Cargo findByNome(String nome);
     public List<Cargo> findAll();
+    public String validarCargo(Cargo cargo);
 
-    public String save(Cargo cargo);
+    public boolean save(Cargo cargo);
     public String deleteById();
 
+    boolean deleteById(Long id);
 }

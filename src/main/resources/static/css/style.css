@@ -100,7 +100,7 @@ text-align: center;
     margin-bottom: 8px;
 }
 
-.container-form-funcionario{
+.container-form-funcionario, .container-form-cargo{
     border: 1px solid #df167b;
     border-radius: 15px;
     padding: 16px;
