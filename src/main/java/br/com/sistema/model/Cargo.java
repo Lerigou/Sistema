@@ -36,6 +36,6 @@ public class Cargo {
 
     @Override
     public String toString() {
-        return "Cargo" + nome;
+        return nome;
     }
 }

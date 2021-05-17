@@ -45,30 +45,35 @@ public class FuncionarioServiceImpl implements FuncionarioService {
     }
 
     @Override
-    public String validarFuncionario(Funcionario funcionario) {
+    public String validarFuncionario(Funcionario funcionario){
         String error = null;
+        Funcionario f;
 
-        if (funcionario.getId() == null) {//novo funcionario
-            if (!funcionarioRepository.findByNome(funcionario.getNome()).equals("")) {
-                error = "Nome já cadastrado!";
+        if (funcionario.getId() == null) {//Novo Funcionario
+            f = funcionarioRepository.findByNome(funcionario.getNome());
+            if ( f != null){
+                error = "Nome já cadastrado.";
+            }
+            f =funcionarioRepository.findByEmail(funcionario.getEmail());
+            if ( f != null){
+                if (error != null) error += " ";
+                error = "Email já cadastrado.";
+            }
+        } else {//Funcionário Existente
+            f = funcionarioRepository.findByIdNotAndNome(funcionario.getId(), funcionario.getNome());
+            if ( f != null){
+                error = "Nome já cadastrado.";
             }
 
-            if (!funcionarioRepository.findByEmail(funcionario.getEmail()).equals("")) {
-                error += "\nEmail já cadastrado!";
+            f = funcionarioRepository.findByIdNotAndEmail(funcionario.getId(), funcionario.getEmail());
+            if (f != null){
+                if (error != null) error += " ";
+                error = "Email já cadastrado.";
             }
 
-        }else {//funcionario existente
-                if (funcionarioRepository.findByIdNotAndEmail(funcionario.getId(), funcionario.getEmail()) != null){
-                    error = "Email já cadastrado!";
-                }
-
-                if (funcionarioRepository.findByIdNotAndEmail(funcionario.getId(), funcionario.getNome()) != null){
-                    error += "\nNome já cadastrado!";
-                }
-            }
+        }
         return error;
     }
-
     public boolean deleteById(Long id){
         try {
             funcionarioRepository.deleteById(id);

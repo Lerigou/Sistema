@@ -50,7 +50,8 @@
             <th>Código</th>
             <th>Nome</th>
             <th>Email</th>
-            <th colspan="3">Telefone</th>
+            <th>Telefone</th>
+            <th colspan="3">Cargo</th>
         </tr>
     </thead>
     <tbody>
@@ -59,6 +60,7 @@
             <td th:text="${funcionario.nome}"></td>
             <td th:text="${funcionario.email}"></td>
             <td th:text="${funcionario.telefone}"></td>
+            <td th:text="${funcionario.cargo}"></td>
             <td class="td-controle">
                 <a th:href="@{'/funcionario/edit/' + ${funcionario.id}}" class="btn btn-outline-dark"><i class="far fa-edit"></i></a>
             </td>

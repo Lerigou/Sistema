@@ -40,7 +40,7 @@
 </nav>
 
 <div class="container container-form-funcionario">
-        <h3>Adicionar Funcionário</h3>
+        <h3>Editar Funcionário</h3>
     <form th:action="@{/funcionario/save}" method="post" th:object="${funcionario}">
 
 
@@ -67,6 +67,14 @@
             <input type="email" class="form-control" id="floatingInputEmail" placeholder="Email" th:field="${funcionario.Email}">
             <label for="floatingInputEmail">Email</label>
         </div>
+
+        <div class="form-floating mb-3">
+            <select class="form-select" id="floatingSelect" required aria-label="Selecione um cargo" th:field="${funcionario.cargo.id}">
+                <option th:each="c : ${cargos}" th:value="${c.id}" th:text="${c}"></option>
+            </select>
+            <label for="floatingSelect">Selecione um cargo</label>
+        </div>
+
 
         <div class="row">
             <div class="col">

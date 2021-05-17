@@ -68,8 +68,15 @@
 
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInputEmail" placeholder="Email"
-                   th:field="*{Email}">
+                   th:field="*{email}">
             <label for="floatingInputEmail">Email</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <select class="form-select" id="floatingSelect" required aria-label="Selecione um cargo" th:field="*{cargo.id}">
+                <option th:each="c : ${cargos}" th:value="${c.id}" th:text="${c}"></option>
+            </select>
+            <label for="floatingSelect">Selecione um cargo</label>
         </div>
 
         <div class="row">

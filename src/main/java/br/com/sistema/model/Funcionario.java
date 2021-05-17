@@ -23,6 +23,17 @@ public class Funcionario {
     @NotNull
     private String telefone;
 
+    @OneToOne
+    @JoinColumn(name = "cargo_id", referencedColumnName = "id")
+    private Cargo cargo;
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
 
     public Long getId() {
         return id;

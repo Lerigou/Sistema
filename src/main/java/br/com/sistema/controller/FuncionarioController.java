@@ -1,6 +1,7 @@
 package br.com.sistema.controller;
 
 import br.com.sistema.model.Funcionario;
+import br.com.sistema.service.CargoServiceImpl;
 import br.com.sistema.service.FuncionarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,9 @@ public class FuncionarioController {
     @Autowired
     FuncionarioServiceImpl funcionarioService;
 
+    @Autowired
+    CargoServiceImpl cargoService;
+
     @GetMapping("/funcionario/list")
     public String list(Model model){
         model.addAttribute("funcionarios", funcionarioService.findAll());
@@ -24,6 +28,7 @@ public class FuncionarioController {
     @GetMapping("/funcionario/add")
     public String add(Model model){
         model.addAttribute("funcionario", new Funcionario());
+        model.addAttribute("cargos", cargoService.findAll());
         return "funcionario/add";
     }
 
@@ -55,6 +60,7 @@ public class FuncionarioController {
     @GetMapping("/funcionario/edit/{id}")
     public String edit(@PathVariable long id, Model model){
         model.addAttribute("funcionario", funcionarioService.findById(id));
+        model.addAttribute("cargos", cargoService.findAll());
         return "funcionario/edit";
 
     }
