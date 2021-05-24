@@ -74,4 +74,6 @@ public class FuncionarioController {
             return "redirect:/funcionario/list";
         }
     }
+
+    //Fazer mensagem de erro
 }
