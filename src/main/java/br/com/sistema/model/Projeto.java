@@ -38,7 +38,7 @@ public class Projeto {
     private Date dataInicial;
 
     @NotNull
-    private double dataFinal;
+    private Date dataFinal;
 
     public Long getId() {
         return id;
@@ -96,11 +96,11 @@ public class Projeto {
         this.dataInicial = dataInicial;
     }
 
-    public double getDataFinal() {
+    public Date getDataFinal() {
         return dataFinal;
     }
 
-    public void setDataFinal(double dataFinal) {
+    public void setDataFinal(Date dataFinal) {
         this.dataFinal = dataFinal;
     }
 

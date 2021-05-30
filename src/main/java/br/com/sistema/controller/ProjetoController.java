@@ -28,15 +28,11 @@ public class ProjetoController {
     @PostMapping("/projeto/save")
     public String save(Projeto projeto, Model model){
 
-        //Fazer o validar
+        //precisa fazer o validar
 
         if (projetoService.save(projeto)){
             return "redirect:/projeto/list";
         }else {
-//            model.addAttribute("projeto", projeto);
-//            model.addAttribute("erro", true);
-//            model.addAttribute("erroMsg", "Erro ao salvar o projeto");
-//            return "projeto/add";
             return "redirect:/projeto/list";
         }
     }
