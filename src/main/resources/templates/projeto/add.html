@@ -104,6 +104,15 @@
                 <label for="floatingInputOrcamento">Orçamento</label>
             </div>
 
+            <div class="form-floating mb-3">
+                <select class="form-select" id="floatingSelectGerente"
+                        aria-label="Selecione o risco"
+                        th:field="*{gerente.id}" required >
+                    <option th:each="gerente : ${gerentes}" th:value="${g.id}" th:text="${g.nome}"></option>
+                </select>
+                <label for="floatingSelectRisco">Selecione o Gerente</label>
+            </div>
+
             <div class="row form-floating mb-3">
                 <div class="form-floating col">
                     <input type="date" class="form-control"
