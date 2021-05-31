@@ -5,46 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" th:href="@{/img/logo.png}">
-    <title>3C Sistemas Digitais</title>
+    <title>Adicionar Projeto</title>
     <!--CSS-->
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.15.3/css/all.css}">
-    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 
 </head>
 <body>
 <!--NAV-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light --bs-pink">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">3C Sistemas Digitais</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">Sistema Funcionário</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" th:href="@{/}">Principal</a>
+                    <a class="nav-link" aria-current="page" th:href="@{/}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/projeto/list}">Projeto</a>
+                    <a class="nav-link" th:href="@{/funcionario/list}">Funcionários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/funcionario/list}">Funcionario</a>
+                    <a class="nav-link" th:href="@{/cargo/list}">Cargos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/cargo/list}">Cargo</a>
+                    <a class="nav-link" th:href="@{/projeto/list}">Projetos</a>
                 </li>
             </ul>
+            <span class="navbar-text">
+              Capivara doces <i class="fas fa-cookie-bite"></i>
+            </span>
         </div>
     </div>
 </nav>
 
-<div class="container container-funcionario table-responsive">
-    <div class="container container-btn-novo">
-        <h3>Projetos</h3>
-        <a th:href="@{/projeto/add}" class="btn btn-outline-dark"><i class="fa fa-file"></i> Novo </a>
-    </div>
-    <div class="container container-form-cargo">
+<div class="container container-form-funcionario">
+        <h3> Adicionar Projeto</h3>
         <form th:action="@{/projeto/save}"
               method="post"
               th:object="${projeto}"
@@ -106,11 +105,11 @@
 
             <div class="form-floating mb-3">
                 <select class="form-select" id="floatingSelectGerente"
-                        aria-label="Selecione o risco"
+                        aria-label="Selecione o gerente"
                         th:field="*{gerente.id}" required >
-                    <option th:each="gerente : ${gerentes}" th:value="${g.id}" th:text="${g.nome}"></option>
+                    <option th:each="g : ${gerentes}" th:value="${g.id}" th:text="${g.nome}"></option>
                 </select>
-                <label for="floatingSelectRisco">Selecione o Gerente</label>
+                <label for="floatingSelectGerente">Selecione o Gerente</label>
             </div>
 
             <div class="row form-floating mb-3">
@@ -118,32 +117,28 @@
                     <input type="date" class="form-control"
                            id="floatingInputDataInicial" placeholder="  Data Inicial"
                            th:field="*{dataInicial}" required>
-                    <label for="floatingInputDataInicial">Data Inicial</label>
+                    <label for="floatingInputDataInicial">  Data Inicial</label>
                 </div>
                 <div class="form-floating col">
                     <input type="date" class="form-control"
                            id="floatingInputDataFinal" placeholder="  Data Final"
                            th:field="*{dataFinal}" required>
-                    <label for="floatingInputDataFinal">Data Final</label>
+                    <label for="floatingInputDataFinal">  Data Final</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <a th:href="@{/projeto/list}"
-                       class="btn btn-outline-secondary btn-form">
-                        <i class="fa fa-backspace"></i> Voltar
-                    </a>
+                    <a th:href="@{/projeto/list}"  id="btn forms" class="btn btn-outline" type="submit">
+                        <i class="far fa-address-book"></i> Voltar </a>
                 </div>
                 <div class="col">
-                    <button type="submit"
-                            class="btn btn-outline-success btn-form">
-                        <i class="fa fa-save"></i> Salvar
+                    <button class="btn btn-outline-success" type="submit">
+                        <i class="far fa-save"></i> Adicionar
                     </button>
                 </div>
             </div>
         </form>
-    </div>
 </div>
 
 <!--JS-->

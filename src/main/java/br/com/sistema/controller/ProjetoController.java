@@ -7,11 +7,13 @@ import br.com.sistema.service.FuncionarioService;
 import br.com.sistema.service.FuncionarioServiceImpl;
 import br.com.sistema.service.ProjetoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+@Controller
 public class ProjetoController {
 
     @Autowired
@@ -21,7 +23,7 @@ public class ProjetoController {
     CargoServiceImpl cargoService;
 
     @Autowired
-    FuncionarioServiceImpl FuncionarioService;
+    FuncionarioServiceImpl funcionarioService;
 
     @GetMapping("/projeto/list")
     public String list(Model model){
@@ -33,8 +35,16 @@ public class ProjetoController {
     public String add(Model model){
         model.addAttribute("projeto", new Projeto());
         Cargo cargo = cargoService.findByNome("Gerente");
-        model.addAttribute("gerentes", FuncionarioService.findByCargo(cargo));
+        model.addAttribute("gerentes", funcionarioService.findByCargo(cargo));
         return "projeto/add";
+    }
+
+    @GetMapping("/projeto/edit")
+    public String edit(@PathVariable Long id, Model model){
+        model.addAttribute("projeto", projetoService.findById(id));
+        Cargo cargo = cargoService.findByNome("Gerente");
+        model.addAttribute("gerentes", funcionarioService.findByCargo(cargo));
+        return "projeto/edit";
     }
 
     @PostMapping("/projeto/save")

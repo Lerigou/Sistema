@@ -14,4 +14,6 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
     public Funcionario findByIdNotAndEmail(Long id, String email);
     public Funcionario findByIdNotAndNome(Long id, String nome);
 
+    public List<Funcionario> findByCargo(Cargo cargo);
+
 }
