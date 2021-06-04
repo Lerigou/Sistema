@@ -1,6 +1,7 @@
 package br.com.sistema.controller;
 
 import br.com.sistema.model.Cargo;
+import br.com.sistema.model.Funcionario;
 import br.com.sistema.model.Projeto;
 import br.com.sistema.service.CargoServiceImpl;
 import br.com.sistema.service.FuncionarioService;
